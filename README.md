@@ -20,10 +20,7 @@ Product模块：
 Farm Master：  
 		完成其主要框架，实现Singleton--------------陈浩然  
 		
-
-
-
-
+-----
 Factory: 生产奶制品，面粉等“产品”  
 Prototype：增加某一种动物/某一块作物田的实例（增加一头牛，增加一块稻田）  
 Iterator：遍历某一种动物（遍历牛群）  
@@ -38,3 +35,7 @@ Flyweight：在不同产品上附带相应的产品品牌标签（农场名，�
 Reference Counting：为品牌标签设置引用计数  
 Singleton：农场主人仅有一名  
 Proxy：通过中间商来访问市场并贩卖产品  
+
+-----
+类图：  
+![image](https://github.com/Diver27/FarmModel/blob/master/images/myMain.png)
