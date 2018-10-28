@@ -9,9 +9,16 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Definition for the class Cotton
+ */
 class Cotton:public AbstractPlant {
 public:
     Cotton(int _size):AbstractPlant(_size){}
+
+    /**
+     * The cottons' specific harvest procedure
+     */
     void harvest(){
         pick();
         dryInSun();

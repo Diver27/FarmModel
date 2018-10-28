@@ -9,9 +9,16 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Definition for class Wheat
+ */
 class Wheat:public AbstractPlant {
 public:
     Wheat(int _size):AbstractPlant(_size){}
+
+    /**
+     * The wheat's specific harvest procedure
+     */
     void harvest(){
         mowDown();
         packUp();

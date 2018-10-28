@@ -6,6 +6,10 @@
 #include "../main/plants/Cotton.h"
 using namespace std;
 
+/**
+ * Test program for plants
+ * @return
+ */
 int main(void){
     Wheat wheat(3);
     wheat.setMature(true);
