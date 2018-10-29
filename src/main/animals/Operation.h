@@ -14,6 +14,7 @@ Strategy template. Choose different opreater to do for an animal.
 
 class Operation	
 {
+public:
 	virtual void operation(void)=0;
 	Operation(void) {}
 };
