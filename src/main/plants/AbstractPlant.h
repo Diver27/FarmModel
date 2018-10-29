@@ -5,6 +5,9 @@
 #ifndef FARMMODEL_ABSTRACTPLANT_H
 #define FARMMODEL_ABSTRACTPLANT_H
 
+#include <iostream>
+using namespace std;
+
 /**
  * Abstract class for all kinds of plants
  */
@@ -32,9 +35,19 @@ public:
     }
 
     /**
-     * Template method. Harvest the plant
+     * Harvest the plant
      */
-    virtual void harvest()=0;
+    void harvest(void){
+        cout<<"Begin harvest process..."<<endl;
+        cout<<"Assemble workers"<<endl;
+        collect();
+        cout<<"Harvest process finished"<<endl;
+    }
+
+    /**
+     * Template method. Collect the plant
+     */
+    virtual void collect()=0;
 };
 
 

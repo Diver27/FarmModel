@@ -17,17 +17,17 @@ public:
     Cotton(int _size):AbstractPlant(_size){}
 
     /**
-     * The cottons' specific harvest procedure
+     * The cottons' specific collect procedure
      */
-    void harvest(){
+    void collect(){
         pick();
         dryInSun();
         store();
-        cout<<"Cotton harvesting process finished."<<endl;
+        cout<<"Cotton has been harvested."<<endl;
     }
 private:
     void pick(void){
-        cout<<"The cottons are picked and stored in bags."<<endl;
+        cout<<"The cottons are picked and packed in bags."<<endl;
     }
     void dryInSun(void){
         cout<<"The cottons are exposed and dried in the sunlight"<<endl;

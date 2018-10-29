@@ -17,13 +17,13 @@ public:
     Wheat(int _size):AbstractPlant(_size){}
 
     /**
-     * The wheat's specific harvest procedure
+     * The wheat's specific collect procedure
      */
-    void harvest(){
+    void collect(){
         mowDown();
         packUp();
-        collect();
-        cout<<"Wheat harvesting process finished."<<endl;
+        transport();
+        cout<<"Wheat has been harvested"<<endl;
     }
 private:
     void mowDown(void){
@@ -32,7 +32,7 @@ private:
     void packUp(void){
         cout<<"The wheat is packed up as wheat rolls"<<endl;
     }
-    void collect(void){
+    void transport(void){
         cout<<"The wheat rolls are collected by trucks."<<endl;
     }
 };
