@@ -3,4 +3,4 @@ project(FarmModel)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(testA test_A.cpp ../main/plants/AbstractPlant.h ../main/plants/Wheat.h ../main/plants/Cotton.h ../main/plants/PlantActionStrategy.h ../main/animals/AbstractAnimal.h ../main/animals/Operation.h)
+add_executable(testA test_A.cpp ../main/plants/AbstractPlant.h ../main/plants/Wheat.h ../main/plants/Cotton.h ../main/plants/PlantActionStrategy.h ../main/animals/AbstractAnimal.h ../main/animals/Operation.h ../main/plants/PlantsField.h)
