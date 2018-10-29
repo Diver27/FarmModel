@@ -6,6 +6,7 @@
 #define FARMMODEL_ABSTRACTPLANT_H
 
 #include <iostream>
+#include "PlantActionStrategy.h"
 using namespace std;
 
 /**
@@ -15,8 +16,9 @@ class AbstractPlant {
 private:
     bool matureMeter;
     int size;
+    Context* context;
 public:
-    AbstractPlant(int _size):size(_size),matureMeter(false){}
+    AbstractPlant(int _size):size(_size),matureMeter(false),context(NULL){}
 
     /**
      * Set if the plant is mature
@@ -42,6 +44,12 @@ public:
         cout<<"Assemble workers"<<endl;
         collect();
         cout<<"Harvest process finished"<<endl;
+    }
+
+    void doAction(int choice){
+        context=new Context(choice);
+        context->doAction();
+        delete context;
     }
 
     /**
