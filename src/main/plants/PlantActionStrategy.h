@@ -39,36 +39,4 @@ public:
     sprayWater(void){}
 };
 
-class Context{
-private:
-    PlantActionStrategy* strategy;
-public:
-    Context(int _opt){
-        setStrategy(_opt);
-    }
-
-    Context(void){
-        strategy=NULL;
-    }
-
-    ~Context(){
-        delete strategy;
-    }
-
-    void setStrategy(int opt){
-        switch(opt){
-            case 1:
-                strategy=new burnDown();
-                break;
-            case 2:
-                strategy=new sprayWater();
-                break;
-        }
-    }
-
-    void doAction(void){
-        strategy->action();
-    }
-};
-
 #endif //FARMMODEL_PLANTACTIONSTRATEGY_H

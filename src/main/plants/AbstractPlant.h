@@ -16,9 +16,9 @@ class AbstractPlant {
 private:
     bool matureMeter;
     int size;
-    Context* context;
+    PlantActionStrategy* strategy;
 public:
-    AbstractPlant(int _size):size(_size),matureMeter(false),context(NULL){}
+    AbstractPlant(int _size):size(_size),matureMeter(false),strategy(NULL){}
 
     /**
      * Set if the plant is mature
@@ -46,10 +46,20 @@ public:
         cout<<"Harvest process finished"<<endl;
     }
 
-    void doAction(int choice){
-        context=new Context(choice);
-        context->doAction();
-        delete context;
+    /**
+     * Select action from Strategy and do it on this plant field
+     * @param opt
+     */
+    void doAction(int opt){
+        switch(opt){
+            case 1:
+                strategy=new burnDown();
+                break;
+            case 2:
+                strategy=new sprayWater();
+                break;
+        }
+        strategy->action();
     }
 
     /**

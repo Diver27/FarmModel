@@ -18,6 +18,6 @@ int main(void){
     Cotton cotton(1);
     cout<<cotton.isMature()<<endl;
     cotton.harvest();
-    cotton.doAction(2);
+    cotton.doAction(1);
     return 0;
 }
