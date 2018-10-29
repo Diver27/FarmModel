@@ -1,5 +1,5 @@
-#ifndef PROTOTYPE_H
-#define PROTOTYPE_H
+#ifndef PLANTSPROTOTYPE_H
+#define PLANTSPROTOTYPE_H
 
 enum PlantType
 {
@@ -112,4 +112,4 @@ private:
 WheatField WheatField::_WheatField;
 int WheatField::_count = 1;
 
-#endif //PROTOTYPE_H
+#endif //PLANTSPROTOTYPE_H
