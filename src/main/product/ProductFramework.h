@@ -2,6 +2,7 @@
 #define FARMWORK_PRODUCT
 
 #include <iostream>
+#include "string.h"
 using namespace std;
 
 class Product

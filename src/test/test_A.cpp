@@ -4,6 +4,8 @@
 #include <iostream>
 #include "../main/plants/Wheat.h"
 #include "../main/plants/Cotton.h"
+#include "../main/plants/PlantsField.h"
+
 using namespace std;
 
 /**
@@ -19,5 +21,7 @@ int main(void){
     cout<<cotton.isMature()<<endl;
     cotton.harvest();
     cotton.doAction(1);
+    PlantsField field;
+    field.add();
     return 0;
 }

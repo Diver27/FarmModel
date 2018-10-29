@@ -7,6 +7,8 @@
 
 #include <vector>
 #include "AbstractPlant.h"
+#include "Wheat.h"
+
 using namespace std;
 
 /**
@@ -17,6 +19,9 @@ private:
     vector<AbstractPlant*> farmField;
 public:
     PlantsField(void){}
+    void add(){
+        farmField.push_back(new Wheat(5));
+    }
 };
 
 
