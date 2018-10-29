@@ -5,13 +5,16 @@
 #ifndef FARMMODEL_PLANTSFIELD_H
 #define FARMMODEL_PLANTSFIELD_H
 
-#include <list>
+#include <vector>
 #include "AbstractPlant.h"
 using namespace std;
 
+/**
+ * A field to store all plants instance
+ */
 class PlantsField {
 private:
-    list<AbstractPlant*> farmField;
+    vector<AbstractPlant*> farmField;
 public:
     PlantsField(void){}
 };
