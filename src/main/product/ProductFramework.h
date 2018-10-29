@@ -2,16 +2,17 @@
 #define FARMWORK_PRODUCT
 
 #include <iostream>
-#include "string.h"
+#include <cstring>
+
 using namespace std;
 
 class Product
 {
 public:
-	Product(char *fn) { strncpy_s(name, fn, sizeof(name)); }
+	Product(char *fn) { strncpy(name, fn, sizeof(name)); }
 	char* GetName() { return name; }
 	virtual void SellProduct() = 0;
-	void SetLabel(char *fn) { strncpy_s(lable, fn, sizeof(lable)); };
+	void SetLabel(char *fn) { strncpy(lable, fn, sizeof(lable)); };
 	void SetPrice(int fn) { price = fn; };
 	char* GetLable() { return lable; }
 	int GetPrice() { return price; }
