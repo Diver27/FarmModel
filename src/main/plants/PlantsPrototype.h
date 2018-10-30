@@ -1,36 +1,41 @@
 #ifndef PLANTSPROTOTYPE_H
 #define PLANTSPROTOTYPE_H
 
+#include <vector>
+using namespace std;
+
 enum PlantType
 {
-	Cotton, Wheat
+	cotton, wheat
 };
 
-class Plant
+class AbstractPlant
 {
 public:
 	virtual void draw() = 0;
-	static Plant *findAndClone(PlantType);
+	static AbstractPlant *findAndClone(PlantType);
 protected:
 	virtual PlantType returnType() = 0;
-	virtual Plant *clone() = 0;
-	// As each subclass of Plant is declared, it registers its prototype
-	static void addPrototype(Plant *plant)
+	virtual AbstractPlant *clone() = 0;
+	// As each subclass of AbstractPlant is declared, it registers its prototype
+	void addPrototype(AbstractPlant *plant)
 	{
 		_prototypes[_nextSlot++] = plant;
+		farmField.push_back(plant);
 	}
 private:
 	// addPrototype() saves each registered prototype here
-	static Plant *_prototypes[2];
+	static AbstractPlant *_prototypes[2];
 	static int _nextSlot;
+	vector<AbstractPlant*> farmField;
 };
 
-Plant *Plant::_prototypes[];
-int Plant::_nextSlot;
+AbstractPlant *AbstractPlant::_prototypes[];
+int AbstractPlant::_nextSlot;
 
 // Client calls this public static member function when it needs an instance
-// of an Plant subclass
-Plant *Plant::findAndClone(PlantType type)
+// of an AbstractPlant subclass
+AbstractPlant *AbstractPlant::findAndClone(PlantType type)
 {
 	for (int i = 0; i < _nextSlot; i++)
 		if (_prototypes[i]->returnType() == type)
@@ -38,34 +43,34 @@ Plant *Plant::findAndClone(PlantType type)
 	return NULL;
 }
 
-class CottonField : public Plant
+class Cotton : public AbstractPlant
 {
 public:
 	PlantType returnType()
 	{
-		return Cotton;
+		return cotton;
 	}
 	void draw()
 	{
 		std::cout << "You have " << _id << " CottonFields." << std::endl;
 	}
 	// When clone() is called, call the one-argument ctor with a dummy arg
-	Plant *clone()
+	AbstractPlant *clone()
 	{
-		return new CottonField(1);
+		return new Cotton(1);
 	}
 protected:
 	// This is only called from clone()
-	CottonField(int dummy)
+	Cotton(int dummy)
 	{
 		_id = _count++;
 	}
 private:
-	// Mechanism for initializing an Plant subclass - this causes the
+	// Mechanism for initializing an AbstractPlant subclass - this causes the
 	// default ctor to be called, which registers the subclass's prototype
-	static CottonField _CottonField;
+	static Cotton _Cotton;
 	// This is only called when the private static data member is initiated
-	CottonField()
+	Cotton()
 	{
 		addPrototype(this);
 	}
@@ -75,41 +80,41 @@ private:
 };
 
 // Register the subclass's prototype
-CottonField CottonField::_CottonField;
+Cotton Cotton::_Cotton;
 // Initialize the "state" per instance mechanism
-int CottonField::_count = 1;
+int Cotton::_count = 1;
 
-class WheatField : public Plant
+class Wheat : public AbstractPlant
 {
 public:
 	PlantType returnType()
 	{
-		return Wheat;
+		return wheat;
 	}
 	void draw()
 	{
 		std::cout << "You have " << _id << " WheatFields." << std::endl;
 	}
-	Plant *clone()
+	AbstractPlant *clone()
 	{
-		return new WheatField(1);
+		return new Wheat(1);
 	}
 protected:
-	WheatField(int dummy)
+	Wheat(int dummy)
 	{
 		_id = _count++;
 	}
 private:
-	WheatField()
+	Wheat()
 	{
 		addPrototype(this);
 	}
-	static WheatField _WheatField;
+	static Wheat _Wheat;
 	int _id;
 	static int _count;
 };
 
-WheatField WheatField::_WheatField;
-int WheatField::_count = 1;
+Wheat Wheat::_Wheat;
+int Wheat::_count = 1;
 
 #endif //PLANTSPROTOTYPE_H
