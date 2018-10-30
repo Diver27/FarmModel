@@ -1,4 +1,4 @@
-#include "building.h"
+#include "../main/building/building.h"
 int main() {
 	BuildingBuilder *farm=new BuildFarm();
 	farm->configureDoor();
@@ -27,8 +27,4 @@ int main() {
 	cout << house->getResult()->ReturnWall() << " " << endl;
 	cout << house->getResult()->ReturnRoof() << " " << endl;
 	cout << house->getResult()->ReturnFloor() << " " << endl;
-	cin.get();
-
-
-
 }

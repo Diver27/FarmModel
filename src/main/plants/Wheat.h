@@ -25,6 +25,14 @@ public:
         transport();
         cout<<"Wheat has been harvested"<<endl;
     }
+
+    /**
+    * accept visitor
+    */
+    virtual void Accept(IVisitor *visitor) {
+        cout << "These cotton is being visited." << endl;
+        visitor->Visit(this);
+    }
 private:
     void mowDown(void){
         cout<<"The wheat field is mowed down."<<endl;

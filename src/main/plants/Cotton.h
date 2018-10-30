@@ -25,6 +25,14 @@ public:
         store();
         cout<<"Cotton has been harvested."<<endl;
     }
+
+    /**
+    * accept visitor
+    */
+    virtual void Accept(IVisitor *visitor) {
+        cout << "These cotton is being visited." << endl;
+        visitor->Visit(this);
+    }
 private:
     void pick(void){
         cout<<"The cottons are picked and packed in bags."<<endl;
