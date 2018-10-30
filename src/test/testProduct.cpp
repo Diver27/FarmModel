@@ -1,5 +1,5 @@
 #include <iostream>
-#include "productFactory.h"
+#include "../main/product/productFactory.h"
 
 
 int main()
@@ -13,7 +13,5 @@ int main()
 	Product* myGoods2 = myFactory.productGoods(2);
 
 	myGoods2->SellProduct();
-
-	system("pause");
 	return 0;
 }

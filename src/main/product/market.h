@@ -21,7 +21,7 @@ public:
 	}
 	void sellPrice(int n)
 	{
-		std::cout << "产品市场价格为 "<<price[n-1] << std::endl;
+		std::cout << "Market Price is "<<price[n-1] << std::endl;
 	}
 private:
 	RealMarket()

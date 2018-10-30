@@ -33,11 +33,11 @@ public:
 	{
 		tradeMark = creatTrademark(factory, 1);
 		m_price = 100;
-		std::cout << "产品1已生成" << std::endl;
+		std::cout << "Product 1 has been produced" << std::endl;
 	}
 	int getPrice() { return m_price; }
 	virtual void SellProduct() { m_buyer->sellPrice(1); }
-	virtual void CreatProduct() { std::cout << "生产产品" << m_price / 100 << std::endl; }
+	virtual void CreatProduct() { std::cout << "Produce product" << m_price / 100 << std::endl; }
 };
 
 class Product2 : public Product
@@ -47,11 +47,11 @@ public:
 	{
 		tradeMark = creatTrademark(factory, 2);
 		m_price = 200;
-		std::cout << "产品2已生成" << std::endl;
+		std::cout << "Product 2 has been produced" << std::endl;
 	}
 	int getPrice() { return m_price; }
 	virtual void SellProduct() { m_buyer->sellPrice(2); }
-	virtual void CreatProduct() { std::cout << "生产产品" << m_price / 100 << std::endl; }
+	virtual void CreatProduct() { std::cout << "Produce product" << m_price / 100 << std::endl; }
 
 };
 
@@ -62,11 +62,11 @@ public:
 	{
 		tradeMark = creatTrademark(factory, 3);
 		m_price = 300;
-		std::cout << "产品3已生成" << std::endl;
+		std::cout << "Product 3 has been produced" << std::endl;
 	}
 	int getPrice() { return m_price; }
 	virtual void SellProduct() { m_buyer->sellPrice(3); }
-	virtual void CreatProduct() { std::cout << "生产产品" << m_price / 100 << std::endl; }
+	virtual void CreatProduct() { std::cout << "Produce product" << m_price / 100 << std::endl; }
 
 };
 
@@ -77,11 +77,11 @@ public:
 	{
 		tradeMark = creatTrademark(factory, 4);
 		m_price = 400;
-		std::cout << "产品4已生成" << std::endl;
+		std::cout << "Product 4 has been produced" << std::endl;
 	}
 	int getPrice() { return m_price; }
 	virtual void SellProduct() { m_buyer->sellPrice(4); }
-	virtual void CreatProduct() { std::cout << "生产产品" << m_price / 100 << std::endl; }
+	virtual void CreatProduct() { std::cout << "Produce product" << m_price / 100 << std::endl; }
 };
 
 //产品工厂 factory pattern
@@ -109,7 +109,7 @@ public:
 			return new Product4(this->m_flyweightFactroy);
 			break;
 		default:
-			std::cout << "请输入1-4" << std::endl;
+			std::cout << "Input option(1~4)" << std::endl;
 			break;
 		}
 	}
