@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include "PlantActionStrategy.h"
+#include "../visitor/Visitor.h"
+
 using namespace std;
 
 /**
@@ -66,6 +68,11 @@ public:
      * Template method. Collect the plant
      */
     virtual void collect()=0;
+
+    /**
+    * visitor pattern
+    */
+    virtual void Accept(IVisitor *visitor) = 0;
 };
 
 
