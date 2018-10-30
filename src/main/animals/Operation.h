@@ -12,20 +12,34 @@ using namespace std;
 Strategy template. Choose different opreater to do for an animal.
 */
 
-class Operation	
+class Operation
 {
-public:
+public :
 	virtual void operation(void)=0;
 	Operation(void) {}
+};
+
+
+/*
+Feed the animals
+*/
+class Feed :public Operation
+{
+public:
+	void operation(void)
+	{
+		cout << "The animals are fed";
+	}
+	Feed(void) {}
 };
 
 /*
 Lend the animals to visitors
 */
-class Lend :Operation
+class Lend :public Operation
 {
-public: 
-	void operation(void) 
+public:
+	void operation(void)
 	{
 		cout << "The animals are lent";
 	}
@@ -35,9 +49,9 @@ public:
 /*
 Slaughter the animals to get meat
 */
-class Slaughter :Operation
+class Slaughter :public Operation
 {
-public: 
+public:
 	void operation(void)
 	{
 		cout << "The animals are slaughtered";
@@ -48,7 +62,7 @@ public:
 /*
 Sell the animals out
 */
-class Sell :Operation
+class Sell :public Operation
 {
 public:
 	void operation(void)

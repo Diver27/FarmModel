@@ -5,9 +5,7 @@
 #include "../main/plants/Wheat.h"
 #include "../main/plants/Cotton.h"
 #include "../main/plants/PlantsField.h"
-#include "../main/visitor/Visitor.h"
 #include "../main/visitor/ConcreteVisitor.h"
-
 using namespace std;
 
 /**
@@ -20,15 +18,22 @@ int main(void){
     cout<<wheat.isMature()<<endl;
     wheat.harvest();
     Cotton cotton(1);
+    cotton.setMature(true);
     cout<<cotton.isMature()<<endl;
     cotton.harvest();
     cotton.doAction(1);
-    PlantsField field;
-    field.add();
+
+    PlantsField  field;//作物数组
+    //field.add(&wheat);//push
+    //field.add(&cotton);
+    field.add(1);
+    field.add(2);
+    field.print();//遍历
 
     IVisitor *staffa = new StaffA();
     IVisitor *staffb = new StaffB();
     cotton.Accept(staffa);
     cotton.Accept(staffb);
+
     return 0;
 }

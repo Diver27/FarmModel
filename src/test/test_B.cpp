@@ -26,5 +26,4 @@ int main()
 	f.NewProduct(milk);
 	f.NewProduct(flour);
 	f.ReportProduct();
-	cin.get();
 }

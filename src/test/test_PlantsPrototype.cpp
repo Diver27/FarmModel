@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PlantsPrototype.h"
+#include "../main/plants/PlantsPrototype.h"
 
 
 
@@ -25,7 +25,5 @@ int main()
 	// Free the dynamic memory
 	for (int i = 0; i < NUM_IMAGES; i++)
 		delete images[i];
-
-	getchar();
 	return 0;
 }
