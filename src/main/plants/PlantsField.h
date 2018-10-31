@@ -15,24 +15,18 @@ using namespace std;
  */
 class PlantsField {
 private:
-    Container<AbstractPlant*> * plantsField= new ConcreteContainer<AbstractPlant*>();
+    Container<AbstractPlant*> * farmField= new ConcreteContainer<AbstractPlant*>();
 public:
     PlantsField(void){}
 
     void add(AbstractPlant*item){
-        plantsField->pushItem(item);
+        farmField->pushItem(item);
     }
     void add(int opt){
-        switch (opt){
-            case 1:
-                plantsField->pushItem(new Wheat(5));
-                break;
-            case 2:
-                plantsField->pushItem(new Cotton(5));
-        }
+        farmField->pushItem(AbstractPlant::findAndClone(opt));
     }
     void print(void) {
-        Iterator<AbstractPlant*> * iterator = plantsField->getIterator();
+        Iterator<AbstractPlant*> * iterator = farmField->getIterator();
         int i = 1;
         for (iterator->First(); !iterator->isEnd(); iterator->Next(),i++) {
             if ((*(iterator->CurItem()))->isMature() == 1){

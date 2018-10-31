@@ -14,7 +14,17 @@ using namespace std;
  */
 class Cotton:public AbstractPlant {
 public:
-    Cotton(int _size):AbstractPlant(_size){}
+    Cotton(int _size):AbstractPlant(_size){
+        addPrototype(this);
+    }
+    PlantType returnType()
+    {
+        return cotton;
+    }
+    AbstractPlant *clone()
+    {
+        return new Cotton(5);
+    }
 
     /**
      * The cottons' specific collect procedure

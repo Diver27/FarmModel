@@ -14,7 +14,17 @@ using namespace std;
  */
 class Wheat:public AbstractPlant {
 public:
-    Wheat(int _size):AbstractPlant(_size){}
+    Wheat(int _size):AbstractPlant(_size){
+        addPrototype(this);
+    }
+    PlantType returnType()
+    {
+        return wheat;
+    }
+    AbstractPlant *clone()
+    {
+        return new Wheat(5);
+    }
 
     /**
      * The wheat's specific collect procedure
